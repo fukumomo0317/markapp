@@ -1,0 +1,449 @@
+@mixin tab {
+    @media screen and (max-width:1020px) {
+        @content
+    }
+}
+
+
+@mixin mobile {
+    @media screen and (max-width:767px) {
+        @content
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 5vw 8vw 2vw 8vw;
+
+    @include tab {
+        margin: 4vw 4vw;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3vw;
+
+    .gnav_ul {
+        color: gray;
+        display: flex;
+        column-gap: 3vw;
+        list-style: none;
+        font-size: 1.6rem;
+        @include tab{
+            display: none;
+        }
+    }
+    @include tab {
+        margin-bottom: 6vw;
+    }
+    @include mobile {
+        margin-bottom: 6vw;
+    }
+}
+/**
+ * ヘッダーのラッパー
+ */
+ .header-wrapper {
+    position: relative;
+  }
+  
+  /**
+   * ハンバーガーメニューのラッパー
+   */
+  .sp-nav-wrapper {
+    /* PCサイトではハンバーガーメニューは表示しない */
+    display: none;
+  }
+  
+  /**
+   * １０００pxより画面幅が小さい場合
+   * （今回はわかりやすく1000pxにしています。）
+   */
+  @media screen and (max-width: 1020px) {
+    /**
+     * ハンバーガーメニューのラッパー
+     */
+    .sp-nav-wrapper {
+      /* ハンバーガーメニューを表示する */
+      display: block;
+      width: 80%;
+      /* 絶対配置 */
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  
+  /**
+   * ナビゲーションメニューのボタンがクリックされたかを判別するためのチェックボックス
+   */
+  .sp-nav-flg {
+    /* 非表示 */
+    display: none;
+  }
+  
+  /**
+   * ナビゲーションメニューのボタン
+   */
+  .sp-nav-btn {
+    display: block;
+    width: 10%;
+    height: 10%;
+    /* 右寄せ */
+    margin: 0 0 5px auto;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* 三本線を作る */
+  .sp-nav-btn span,
+  .sp-nav-btn:before,
+  .sp-nav-btn:after {
+    position: absolute;
+    top: 1.5vw;
+    bottom: 0;
+    left:0;
+    right: 0;
+    width: 10vw;
+    height: 0.2vw;
+    margin: auto;
+    background-color: #333;
+  }
+  
+  /**
+   * 真ん中の線
+   */
+  .sp-nav-btn span {
+    z-index: 2;
+    overflow: hidden;
+  }
+  
+  /**
+   * 上の線
+   */
+  .sp-nav-btn:before {
+    content: "";
+    z-index: 3;
+    /* 上にずらす */
+    transform: translate(0, -8px);
+  }
+  
+  /**
+   * 下の線
+   */
+  .sp-nav-btn:after {
+    content: "";
+    z-index: 3;
+    /* 下にずらす */
+    transform: translate(0, 8px);
+  }
+  
+  /**
+   * 真ん中の線（クリック時）
+   */
+  #sp-nav-flg:checked ~ .sp-nav-btn span {
+    /* 非表示にする */
+    opacity: 0;
+  }
+  
+  /**
+   * 上の線（クリック時）
+   */
+  #sp-nav-flg:checked ~ .sp-nav-btn:before {
+    /* 45度回転させる */
+    transform: rotate(45deg);
+  }
+  
+  /**
+   * 下の線（クリック時）
+   */
+  #sp-nav-flg:checked ~ .sp-nav-btn:after {
+    /* -45度回転させる */
+    transform: rotate(-45deg);
+  }
+  
+  /* アニメーションをつける */
+  .sp-nav-btn:before,
+  .sp-nav-btn:after {
+    transition: transform 300ms;
+  }
+  
+  /**
+   * メニュー
+   */
+  .sp-nav-menu {
+    /* 通常時は非表示 */
+    display: none;
+    width: 70vw;
+    background-color: gray;
+  }
+  
+  /**
+   * ナビゲーションボタンがクリックされた時のメニュー
+   */
+  #sp-nav-flg:checked ~ .sp-nav-menu {
+    /* ナビゲーションメニューのボタンがクリックされたら表示 */
+    display: block;
+  }
+  
+  /* メニューのリスト */
+  .sp-nav-outer ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+  }
+  
+  /* メニューのリスト(li) */
+  .sp-nav-outer ul li {
+    padding: 10px;
+    border-bottom: 1px solid #000;
+  }
+  
+  /* メニューのリスト(li)先頭 */
+  .sp-nav-outer ul li:first-child {
+    border-top: 1px solid #000;
+  }
+  
+  /* メニューの先頭のアイコン（fontawesome） */
+  .sp-nav-outer ul li i {
+    margin-right: 10px;
+  }
+
+
+.wraper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2vw;
+
+    &_wrap {
+        img {
+            width: 100%;
+        }
+
+        &_text {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            h1 {
+                font-family: 'Roboto', sans-serif;
+                font-size: 7rem;
+                line-height: 4.5vw;
+                margin: 2vw 1vw 0 0;
+                letter-spacing: 0.2vw;
+
+                @include tab {
+                    font-size: 12rem;
+                    line-height: 12vw;
+                    margin-top: 6vw;
+                }
+
+                @include mobile {
+                    font-size: 9rem;
+                    margin-top: 7vw;
+                }
+            }
+
+            p {
+                margin-top: 2vw;
+                color: gray;
+                font-size: 1.6rem;
+
+                @include tab {
+                    margin-top: 5vw;
+                    font-size: 3.8rem;
+                }
+
+                @include mobile {
+                    font-size: 3rem;
+                }
+            }
+
+            button {
+                background-color: rgb(202, 65, 65);
+                color: white;
+                padding: 1vw 2vw;
+                border: none;
+                letter-spacing: 0.5vw;
+                margin-top: 1vw;
+
+                @include tab {
+                    font-size: 3rem;
+                    margin: 4vw 0 15vw 0;
+                    padding: 4vw 10vw;
+                    letter-spacing: 1vw;
+                }
+
+                @include mobile {
+                    margin-top: 4vw;
+                    letter-spacing: 1vw;
+                }
+            }
+
+            @include tab {
+                display: block;
+            }
+        }
+
+    }
+
+    &_new {
+        background-color: rgb(16, 31, 58);
+        padding: 2vw 2vw 0 2vw;
+
+        h2 {
+            color: rgb(239, 167, 90);
+            font-size: 2.8rem;
+            margin: 0 auto;
+            padding-bottom: -2vw;
+
+            @include tab {
+                font-size: 76px;
+            }
+        }
+
+        section {
+            border-bottom: 1px solid aliceblue;
+            padding: 2vw 0;
+
+            @include tab {
+                padding: 6vw 0 10vw 0;
+            }
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: aliceblue;
+            margin: 0 0 0.5vw 0;
+
+            @include tab {
+                font-size: 4.8rem;
+                margin: 0 0 2vw 0;
+            }
+
+            @include mobile {
+                font-size: 3.6rem;
+            }
+        }
+
+        p {
+            color: aliceblue;
+            margin: 0 auto;
+            font-size: 1.6rem;
+
+            @include tab {
+                font-size: 3.9rem;
+                line-height: 6vw;
+            }
+
+            @include mobile {
+                font-size: 3rem;
+            }
+        }
+
+        @include tab {
+            padding: 6vw;
+        }
+    }
+
+    @include tab {
+        display: block;
+    }
+}
+
+.ranking {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 4vw;
+
+    &_wraper {
+        display: flex;
+
+        img {
+            width: 25%;
+
+            @include tab {
+                width: 30%;
+            }
+
+            @include mobile {
+                width: 30%;
+            }
+        }
+
+        &_text {
+            padding: 0 2vw;
+
+            h2 {
+                margin: 0 auto;
+                color: gray;
+
+                @include tab {
+                    font-size: 4rem;
+                    margin-bottom: 2vw;
+                }
+            }
+
+            h3 {
+                font-size: 1.8rem;
+                margin: 0.5vw auto;
+                font-family: 'Roboto', sans-serif;
+
+                @include tab {
+                    font-size: 5rem;
+                    margin-bottom: 1.5vw;
+                }
+
+                @include mobile {
+                    font-size: 4rem;
+                }
+            }
+
+            p {
+                font-size: 1.5rem;
+                margin: 0 auto;
+                color: gray;
+
+                @include tab {
+                    font-size: 4rem;
+                }
+
+                @include mobile {
+                    font-size: 3rem;
+                }
+            }
+
+            @include tab {
+                padding: 0;
+                width: 70%;
+            }
+
+            @include mobile {
+                width: 70%;
+            }
+        }
+
+        @include tab {
+            margin: 0 0 8vw 0;
+            gap: 6vw;
+        }
+    }
+
+    @include tab {
+        display: block;
+        margin: 14vw 0;
+    }
+}
+
+.attribution {
+    margin-top: 3vw;
+}

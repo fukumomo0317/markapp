@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/style.min.css">
+  <title>Frontend Mentor | News homepage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-wrapper">
+      <!-- PCサイト用のメニューなどはココに実装 -->
+      <img src="assets/images/logo.svg" alt="ロゴ">
+      <nav class="gnav">
+        <ul class="gnav_ul">
+          <li>Home</li>
+          <li>New</li>
+          <li>Popular</li>
+          <li>Trending</li>
+          <li>Categories</li>
+        </ul>
+      </nav>
+      <!-- ハンバーガーメニュー -->
+      <div class="sp-nav-wrapper">
+        <div class="sp-nav-outer">
+          <!-- ナビゲーションがクリックされたかを判別するためのチェックボックス -->
+          <input type="checkbox" id="sp-nav-flg" class="sp-nav-flg">
+          <!-- ナビゲーションボタン -->
+          <label for="sp-nav-flg" class="sp-nav-btn">
+            <span></span>
+          </label>
+          
+          <!-- メニュー -->
+          <ul class="sp-nav-menu">
+            <li><i class="fa-solid fa-circle-chevron-right"></i>Home</li>
+            <li><i class="fa-solid fa-circle-chevron-right"></i>New</li>
+            <li><i class="fa-solid fa-circle-chevron-right"></i>Popular</li>
+            <li><i class="fa-solid fa-circle-chevron-right"></i>Trending</li>
+            <li><i class="fa-solid fa-circle-chevron-right"></i>Categories</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="wraper">
+      <div class="wraper_wrap">
+        <picture>
+          <source srcset="assets/images/image-web-3-mobile.jpg" media="(max-width:1020px)" type="image/jpg">
+          <img src="assets/images/image-web-3-desktop.jpg" alt="">
+        </picture>
+        <div class="wraper_wrap_text">
+          <div>
+            <h1>The Bright Future of Web 3.0?</h1>
+          </div>
+          <div>
+            <p>We dive into the next evolution of the web that claims to put the power of the platforms back into the
+              hands
+              of
+              the people.
+              But is it really fulfilling its promise?</p>
+            <button type="button">READ MORE</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="wraper_new">
+        <h2>New</h2>
+        <section>
+          <h3>Hydrogen VS Electric Cars</h3>
+          <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+        </section>
+        <section>
+          <h3>The Downsides of AI Artistry</h3>
+          <p>What are the possible adverse effects of on-demand AI image generation?</p>
+        </section>
+        <section>
+          <h3>Is VC Funding Drying Up?</h3>
+          <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+        </section>
+      </section>
+    </div>
+
+    <div class="ranking">
+      <div class="ranking_wraper">
+        <img src="assets/images/image-retro-pcs.jpg" alt="">
+        <div class="ranking_wraper_text">
+          <h2>01</h2>
+          <h3>Reviving Retro PCs</h3>
+          <p>What happens when old PCs are given modern upgrades?</p>
+        </div>
+      </div>
+      <div class="ranking_wraper">
+        <img src="assets/images/image-top-laptops.jpg" alt="">
+        <div class="ranking_wraper_text">
+          <h2>02</h2>
+          <h3>Top 10 Laptops of 2022</h3>
+          <p>Our best picks for various needs and budgets.</p>
+        </div>
+      </div>
+      <div class="ranking_wraper">
+        <img src="assets/images/image-gaming-growth.jpg" alt="">
+        <div class="ranking_wraper_text">
+          <h2>03</h2>
+          <h3>The Growth of Gaming</h3>
+          <p>How the pandemic has sparked fresh opportunities.</p>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </main>
+</body>
+
+</html>
